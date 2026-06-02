@@ -177,3 +177,100 @@ objKey = null; // Remove reference to the object
 // After garbage collection, the object and its associated value will be removed from the weak map
 ```
 ---
+
+21. Promises: Full structure of a Promises
+```javascript
+const myPromise = new Promise(function (resolve, reject) {
+  const success = true;
+
+  setTimeout(function () {
+    if (success) {
+      resolve('Ice cream is ready!');
+    } else {
+      reject('Sorry, no ice cream today.');
+    }
+  }, 1000);
+});
+
+console.log(myPromise);
+
+myPromise.then(
+  function (message) {
+    console.log('Success:', message);
+  },
+  function (error) {
+    console.log('Failed:', error);
+  }
+);
+```
+---
+
+22. **PROXY**: An object that stands in front of another object and intercepts operations on it
+```javascript
+const richard = {status: "looking for a job"};
+const handler = {
+  get(target, property) {
+    if (property === "status") {
+      return "hired";
+    }
+    return target[property];
+  }
+};
+const richardProxy = new Proxy(richard, handler);
+console.log(richardProxy.status); // Output: "hired"
+
+// using set trap to intercept property assignment
+const handler = {
+  set(target, property, value) {
+    if (property === "status") {
+      console.log("Status cannot be changed.");
+      return false; // Prevent the assignment
+    }
+    target[property] = value; // Allow other properties to be set
+    return true;
+  }
+};
+const richardProxy = new Proxy(richard, handler);
+richardProxy.status = "hired"; // Output: "Status cannot be changed."
+
+richardProxy.name = "Richard"; // This will work, as it's not the "status" property
+console.log(richardProxy.name); // Output: "Richard"
+```
+-- 
+
+**OTHER TRAPS**:
+
+1. The get trap: Intercepts property access.
+2. The set trap: Intercepts property assignment.  
+3. The has trap: Intercepts the in operator.
+   ```javascript
+   const handler = {
+     has(target, property) {
+       if (property === "status") {
+         return false; // Pretend that the "status" property does not exist
+       }
+       return property in target; // Default behavior for other properties
+     }
+   };
+    const richardProxy = new Proxy(richard, handler);
+    console.log("status" in richardProxy); // Output: false
+    console.log("name" in richardProxy); // Output: true (assuming "name" is a property of the target object)
+   ```
+4. The deleteProperty trap: Intercepts the delete operator.
+5. The apply trap: Intercepts function calls.
+6. The construct trap: Intercepts object instantiation with the new operator.
+7. The getOwnPropertyDescriptor trap: Intercepts Object.getOwnPropertyDescriptor() calls.
+8. The ownKeys trap: Intercepts Object.keys(), Object.getOwnPropertyNames(), ...
+
+**DIFFERENCE BETWEEN PROXY & GETTER/SETTER**
+==> ES5 getter/setter: beforehand defined properties, only intercepts property access and assignment, cannot intercept other operations like function calls or object instantiation.
+
+==> ES6 Proxy: can intercept a wide range of operations (property access, assignment, function calls, object instantiation, etc.), allows for dynamic behavior and more flexible object manipulation.
+
+-----
+
+
+
+
+
+
