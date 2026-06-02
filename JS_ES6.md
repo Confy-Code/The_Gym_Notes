@@ -262,12 +262,39 @@ console.log(richardProxy.name); // Output: "Richard"
 7. The getOwnPropertyDescriptor trap: Intercepts Object.getOwnPropertyDescriptor() calls.
 8. The ownKeys trap: Intercepts Object.keys(), Object.getOwnPropertyNames(), ...
 
-**DIFFERENCE BETWEEN PROXY & GETTER/SETTER**
+23. **DIFFERENCE BETWEEN PROXY & GETTER/SETTER**
 ==> ES5 getter/setter: beforehand defined properties, only intercepts property access and assignment, cannot intercept other operations like function calls or object instantiation.
 
 ==> ES6 Proxy: can intercept a wide range of operations (property access, assignment, function calls, object instantiation, etc.), allows for dynamic behavior and more flexible object manipulation.
 
 -----
+
+24. **GENERATORS AND ITERATORS**
+
+1. Generators: special functions that can be paused and resumed, defined with function* syntax, use yield to produce a sequence of values.
+```javascript
+function* generatorFunction() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+const generator = generatorFunction();
+console.log(generator.next()); // { value: 1, done: false }
+
+```
+---
+25. **YIELD** IN and OUT functions: yield can be used to receive input from the caller and also to produce output.
+```javascript 
+function* generatorFunction() {
+  const input = yield "Please provide input";
+  console.log("Received input:", input);
+  yield "Thank you for the input!";
+}
+const generator = generatorFunction();
+console.log(generator.next()); // { value: "Please provide input", done: false }
+console.log(generator.next("Hello, Generator!")); // Logs: "Received input: Hello, Generator!" and returns { value: "Thank you for the input!", done: false }
+```
+
 
 
 
