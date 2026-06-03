@@ -294,6 +294,41 @@ const generator = generatorFunction();
 console.log(generator.next()); // { value: "Please provide input", done: false }
 console.log(generator.next("Hello, Generator!")); // Logs: "Received input: Hello, Generator!" and returns { value: "Thank you for the input!", done: false }
 ```
+---
+
+26. **Ecma international:** organization that standardizes JavaScript (ECMAScript) and JSON specifications, ensuring consistency and compatibility across different implementations of JavaScript.
+
+---
+
+27. **specs (specifications)** : detailed documents that define the behavior and features of JavaScript, including syntax, semantics, and APIs. They serve as a reference for developers and implementers of JavaScript engines.
+
+---
+
+28. Each browser maker **(except for Safari)** has a website that tracks its development status.
+
+---
+
+29. **POLYFILL**: a piece of code (usually JavaScript) that implements a feature on web browsers that do not natively support it, allowing developers to use modern features while maintaining compatibility with older browsers.
+```javascript
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function (searchString, position) {
+    position = position || 0;
+    return this.substr(position, searchString.length) === searchString;
+  };
+}
+```
+==> Other Polyfills include: SVG, HTML5, Video, WebSockets, etc.
+---
+
+30. **TRANSPILER**: Converts the code from one language version to another, e.g, from ES6 to ES5, allowing developers to use modern JavaScript features while ensuring compatibility with older browsers that may not support those features.
+
+- Example: Babel -- a popular JavaScript transpiler that converts ES6+ code into ES5 code, JSX and Flow to JavaScript by using their website.
+
+  To do this, Babel uses plugins and presets that define how specific features like arrow functions should be transformed.
+
+  Plugins and presents can be configured in .babelrc file.
+
+--- 
 
 
 
