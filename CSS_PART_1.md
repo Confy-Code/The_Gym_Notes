@@ -1,4 +1,4 @@
-## CASCADING STYLE SHEETS (CSS) PART 1
+## CASCADING STYLE SHEETS (CSS) PART 1 - FLEXBOX
 *Author: Confy-Code*
 
 > In this file, we are going to focus on the concept of "Flexbox" and This layout modes is essential for creating responsive and flexible web designs. We assume the core basics of CSS are already known.
