@@ -1,4 +1,5 @@
 ## CASCADING STYLE SHEETS (CSS) PART 1
+*Author: Confy-Code*
 
 > In this file, we are going to focus on the concept of "Flexbox" and This layout modes is essential for creating responsive and flexible web designs. We assume the core basics of CSS are already known.
 ---
@@ -53,4 +54,38 @@
 7. **CSS as a collection of layout modes**: It is better to think of CSS as the collection of layout modes rather than collection of properties. For example, the property `width` behaves differently when used in `flow layout` (block layout) compared to when it is used in `flexbox layout`. In block layout, `width` defines the width of the element regardless of the parent capability to hold it, while in flexbox layout.
 ---
 
+8. **flex-basis**: Similar to `width` in block layout, but aligns with the primary axis in flexbox layout, instead of staying at the horizontal rule as `width` does.
+
+---
+
+9. **flex-grow**: This property allows flex items to grow and fill the available space in the flex container. It is unitless. For example, if one item has a `flex-grow` value of 2 and another has a value of 1, the first item will take up twice as much of the available space as the second item.
+---
+10. **flex-shrink**: This property allows flex items to shrink and fit within the available space in the flex container when there is not enough space. It is also unitless. It is like an inverse of `flex-grow`; two sides of the same coin.
+
+> Use `flex-shrink:0` to prevent an item from shrinking when the container is too small. For example, when you are working with shapes. You don't want them to be distorted!
+---
+
+11. **min-width (and min-height)**: min-width property overwrites the default minimum size of the content. However, you might want ti use it with caution as sometimes it can cause `overflow` issues.
+---
+
+12. **Gaps**: The `gap` property is used to create space between flex items in a flex container. It can be applied to both the primary and cross axes. For example, `gap: 20px;` will create a 20px gap between each flex item.
+---
+
+13. **Auto-margins**: In Flexbox, auto margins can be used to create flexible spacing between items. For example, if you set `margin-left: auto;` on a flex item, it will push the item to the rightmost edge of the container, creating space between it and the previous item. Similar is applied to the `margin-right` property.
+---
+
+14.  **Wrapping**: When `wrap` property is set to `wrap`, flex items will wrap onto multiple lines if necessary. This is useful for creating responsive designs that adapt to different screen sizes. Otherwise you set it to `nowrap`.
+---
+15. **align-content**: This property is used to align flex lines when there is extra space in the cross axis. It only has an effect when there are multiple lines of flex items. The possible values include:
+   - `stretch`: Stretches the lines to fill the container (default).
+   - `flex-start`: Aligns the lines to the start of the cross axis.
+   - `flex-end`: Aligns the lines to the end of the cross axis.
+   - `center`: Centers the lines along the cross axis.
+   - `space-between`: Distributes the lines evenly with the first line at the start and the last line at the end.
+   - `space-around`: Distributes the lines evenly with equal space around them.
+    > Note:Unlike `align-items`, `align-content` does not affect the alignment of individual flex items; it only affects the alignment of the lines of items when there are multiple lines.
+===
+
+*~END~*
+===
 
