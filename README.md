@@ -1,6 +1,7 @@
 # The Gym Notes
 
 > A collection of structured notes, summaries, code snippets, and learning resources from my journey through The Gym Rwanda.
+> **Note:** JavaScript and its related frameworks are the most used language throughout this entire room.
 
 ---
 
