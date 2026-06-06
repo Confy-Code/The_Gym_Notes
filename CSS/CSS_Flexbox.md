@@ -86,6 +86,10 @@
     > Note:Unlike `align-items`, `align-content` does not affect the alignment of individual flex items; it only affects the alignment of the lines of items when there are multiple lines.
 ===
 
+Credits: [Josh Comeau Blog post](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+
+---
+
 *~END~*
 ===
 

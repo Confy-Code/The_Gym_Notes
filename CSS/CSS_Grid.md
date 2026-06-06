@@ -68,4 +68,55 @@ Instead of using `grid-column` and `grid-row` repeatedly to define the layouts l
 > When we write `property: value 1 | value 2`, we mean that you can use either of the values. We just want to show you the possible values to that specific property.
 ---
 
+9. ### DOM POSITION VS GRID POSITION
+
+- The `reading-order: [number]` property in CSS manually overrides the order in which child elements are evaluated by screen readers and keyboard tab navigation. In other words, It allows you to specify the `Tab order` of each element.
+
+> Note that this feature is only supported by Chrome and Edge as of May 2026. Follow this [link](https://caniuse.com/wf-reading-flow) to discover where it is supported.
+
+- `reading-flow: grid-rows` is often used when we have used a standard grid layout, and we do not want to assign a `reading-order` number to every child. This automatically follows the visual grid placement row by row. Use `reading-flow: grid-columns` for column by column placement.
+
+> if you decide to use `reading-order` over a grid child, set the `reading-flow: source-order` property for the parent, to tell the container to allow explicit child ordering modification. Lowest value of `reading-order` comes first.
+---
+
+10. ### ALIGNMENT OF GRID ELEMENTS (HORIZONTALLY)
+
+- We use `justify-content: start | end | centre | stretch` to arrange the compartments of our grid, distributing them across the grid however we wish.
+
+- If we want to align the items themselves within their columns, we can use the `justify-items` property.
+
+- We can even control the alignment of a specific grid child using the `justify-self` property.
+
+---
+11. ### ALIGNMENT OF GRID ELEMENTS (VERTICALLY)
+
+> CSS Grid provides an additional set of properties to align stuff in the vertical direction using `align-content: start | end | centre | space-between | space-around | space-evenly `, `align-items` and `align-self`.
+
+* `align-content` is like `justify-content`, but it affects rows instead of columns. Similarly, `align-items` is like `justify-items`, but it handles the vertical alignment of items inside their grid area, rather than horizontal. That proportionality also goes for `align-self` and `justify-self` pair.
+
+---
+
+12. ### Two-line centering trick
+
+To place an element onto the centre of our grid container, we can use:
+```css
+.parent {
+    display: grid;
+    justify-content: centre;
+    align-content: centre;
+}
+```
+However we have a shorthand for this. `place-content: centre` solves it all.
+---
+
+Credits: [Josh Comeau Blog post](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+
+===
+
+**~END~**
+
+
+
+
+
 
