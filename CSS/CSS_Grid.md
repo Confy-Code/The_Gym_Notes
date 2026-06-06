@@ -6,7 +6,8 @@
 ===
 1. We opt in the CSS Grid layout by assigning the `display` property to `grid` on a container element. This will make all of its direct children become grid items.
 
-```css.container {
+```css
+.container {
   display: grid;
 }
 ```
