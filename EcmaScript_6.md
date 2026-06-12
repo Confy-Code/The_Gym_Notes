@@ -6,12 +6,14 @@
 ES6 - UDACITY NOTES
 ===
 
-1. * let and const: block-scoped variable declaration, no hoisting, no redeclaration
-* var: function-scoped variable declaration, hoisting, redeclaration allowed
+1. **`let`, `const` and `var` keywords** 
+
+* `let` and `const`: block-scoped variable declaration, no hoisting, no redeclaration
+* `var`: function-scoped variable declaration, hoisting, redeclaration allowed
 
 ---
 
-2. Template literals --> (`${}`)
+1. Template literals --> (`${}`)
 *Example:*
 ```javascript
 const name = "Alice";
@@ -19,7 +21,7 @@ const greeting = `Hello, ${name}!`;
 ```
 ---
 
-3. Object literal shorthand (elimination of keyword 'function')
+1. Object literal shorthand (elimination of keyword 'function')
 *Example:*
 ```javascript
 const obj = {
@@ -261,6 +263,7 @@ console.log(richardProxy.name); // Output: "Richard"
 6. The construct trap: Intercepts object instantiation with the new operator.
 7. The getOwnPropertyDescriptor trap: Intercepts Object.getOwnPropertyDescriptor() calls.
 8. The ownKeys trap: Intercepts Object.keys(), Object.getOwnPropertyNames(), ...
+---
 
 23. **DIFFERENCE BETWEEN PROXY & GETTER/SETTER**
 ==> ES5 getter/setter: beforehand defined properties, only intercepts property access and assignment, cannot intercept other operations like function calls or object instantiation.
@@ -271,7 +274,7 @@ console.log(richardProxy.name); // Output: "Richard"
 
 24. **GENERATORS AND ITERATORS**
 
-1. Generators: special functions that can be paused and resumed, defined with function* syntax, use yield to produce a sequence of values.
+- **Generators**: special functions that can be paused and resumed, defined with function* syntax, use yield to produce a sequence of values.
 ```javascript
 function* generatorFunction() {
   yield 1;
@@ -283,7 +286,7 @@ console.log(generator.next()); // { value: 1, done: false }
 
 ```
 ---
-25. **YIELD** IN and OUT functions: yield can be used to receive input from the caller and also to produce output.
+- **YIELD** IN and OUT functions: yield can be used to receive input from the caller and also to produce output.
 ```javascript 
 function* generatorFunction() {
   const input = yield "Please provide input";
@@ -296,19 +299,19 @@ console.log(generator.next("Hello, Generator!")); // Logs: "Received input: Hell
 ```
 ---
 
-26. **Ecma international:** organization that standardizes JavaScript (ECMAScript) and JSON specifications, ensuring consistency and compatibility across different implementations of JavaScript.
+25.  **Ecma international:** organization that standardizes JavaScript (ECMAScript) and JSON specifications, ensuring consistency and compatibility across different implementations of JavaScript.
 
 ---
 
-27. **specs (specifications)** : detailed documents that define the behavior and features of JavaScript, including syntax, semantics, and APIs. They serve as a reference for developers and implementers of JavaScript engines.
+26. **specs (specifications)** : detailed documents that define the behavior and features of JavaScript, including syntax, semantics, and APIs. They serve as a reference for developers and implementers of JavaScript engines.
 
 ---
 
-28. Each browser maker **(except for Safari)** has a website that tracks its development status.
+27. Each browser maker **(except for Safari)** has a website that tracks its development status.
 
 ---
 
-29. **POLYFILL**: a piece of code (usually JavaScript) that implements a feature on web browsers that do not natively support it, allowing developers to use modern features while maintaining compatibility with older browsers.
+28. **POLYFILL**: a piece of code (usually JavaScript) that implements a feature on web browsers that do not natively support it, allowing developers to use modern features while maintaining compatibility with older browsers.
 ```javascript
 if (!String.prototype.startsWith) {
   String.prototype.startsWith = function (searchString, position) {
@@ -320,7 +323,7 @@ if (!String.prototype.startsWith) {
 ==> Other Polyfills include: SVG, HTML5, Video, WebSockets, etc.
 ---
 
-30. **TRANSPILER**: Converts the code from one language version to another, e.g, from ES6 to ES5, allowing developers to use modern JavaScript features while ensuring compatibility with older browsers that may not support those features.
+29. **TRANSPILER**: Converts the code from one language version to another, e.g, from ES6 to ES5, allowing developers to use modern JavaScript features while ensuring compatibility with older browsers that may not support those features.
 
 - Example: Babel -- a popular JavaScript transpiler that converts ES6+ code into ES5 code, JSX and Flow to JavaScript by using their website.
 
