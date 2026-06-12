@@ -6,7 +6,8 @@
 ===
 1. We opt in the CSS Grid layout by assigning the `display` property to `grid` on a container element. This will make all of its direct children become grid items.
 
-```css.container {
+```css
+.container {
   display: grid;
 }
 ```
@@ -53,9 +54,9 @@
 
 7. ### ASSIGNING COLUMNS AND ROWS DYNAMICALLY
 
->Instead of just saying `grid-column: 2`, sometimes we don't know the column number (or a row number as well) on which we want our grid child to sit. To mitigate this we use `span`
+>Instead of just saying `grid-column: 2`, sometimes we don't know the column number (or a row number as well) on which we want our grid child to sit. To mitigate this we use `span`.
 
-**span**: When we want to assign a number of columns or rows to a child instead of specifying the column numbers on which it should sit on, we can for example, write `grid-column: span 2;` to give up *2 columns* to an element. We do not want to know which specific columns will cover that range.
+- **span**: When we want to assign a number of columns or rows to a child instead of specifying the column numbers on which it should sit on, we can for example, write `grid-column: span 2;` to give up *2 columns* to an element. We do not want to know which specific columns will cover that range.
 ---
 
 > To Be Discussed Later: `grid-auto-flow: row dense | column dense ;`: This CSS property controls how the auto-placement algorithm works in CSS Grid, especially when the order of the grid children is not necessary.
