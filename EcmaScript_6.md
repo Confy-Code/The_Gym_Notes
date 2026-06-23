@@ -88,7 +88,7 @@ class Person {
 ```
 ---
 
-10. "Super" is used to pass variables child --> Parent class
+10. "Super" is used to pass variables from child to Parent class
 ```javascript
 // Parent Class
 class Parent {
