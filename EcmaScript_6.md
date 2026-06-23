@@ -88,6 +88,42 @@ class Person {
 ---
 
 10. "Super" is used to pass variables child --> Parent class
+```javascript
+// Parent Class
+class Parent {
+  constructor(familyName, homeCity) {
+    this.familyName = familyName;
+    this.homeCity = homeCity;
+  }
+
+  displayParentInfo() {
+    console.log(`Family: ${this.familyName}, City: ${this.homeCity}`);
+  }
+}
+
+// Child Class
+class Child extends Parent {
+  constructor(familyName, homeCity, firstName, age) {
+    // 1. Pass familyName and homeCity up to the Parent constructor
+    super(familyName, homeCity); 
+    
+    // 2. Initialize Child-specific properties
+    this.firstName = firstName;
+    this.age = age;
+  }
+
+  displayChildInfo() {
+    console.log(`Name: ${this.firstName} ${this.familyName}, Age: ${this.age}, From: ${this.homeCity}`);
+  }
+}
+
+// --- Execution ---
+const childInstance = new Child("Smith", "New York", "Alice", 12);
+
+childInstance.displayParentInfo(); // Output: Family: Smith, City: New York
+childInstance.displayChildInfo();  // Output: Name: Alice Smith, Age: 12, From: New York
+```
+---
 
 11. Symbol(description): Handle duplicate properties in an object.
 ```javascript
