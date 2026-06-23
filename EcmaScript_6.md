@@ -74,6 +74,7 @@ const add = (a, b) => {
 
 9.  JS classes - use static functions for comparing the obj of the 
 		same class
+> When defining functions in the class we do not use `function` keyword.
 ```javascript
 class Person {
   constructor(name) {
