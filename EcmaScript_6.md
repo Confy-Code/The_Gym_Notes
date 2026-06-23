@@ -74,7 +74,7 @@ const add = (a, b) => {
 
 9.  JS classes - use static functions for comparing the obj of the 
 		same class
-> When defining functions in the class we do not use `function` keyword.
+> When defining functions in the class we do not use `function` keyword. Using it results into Syntax error
 ```javascript
 class Person {
   constructor(name) {
