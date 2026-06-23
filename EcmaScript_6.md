@@ -119,10 +119,10 @@ class Child extends Parent {
 }
 
 // --- Execution ---
-const childInstance = new Child("Smith", "New York", "Alice", 12);
+const childInstance = new Child("Confy", "Kigali", "Code", 21);
 
-childInstance.displayParentInfo(); // Output: Family: Smith, City: New York
-childInstance.displayChildInfo();  // Output: Name: Alice Smith, Age: 12, From: New York
+childInstance.displayParentInfo(); // Output: Family: Confy, City: Kigali
+childInstance.displayChildInfo();  // Output: Name: Code Confy, Age: 21, From: Kigali
 ```
 ---
 
