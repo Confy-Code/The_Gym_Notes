@@ -58,6 +58,7 @@ function sum(...numbers) {
   return numbers.reduce((acc, num) => acc + num, 0);
 }
 ```
+> Destructuring go with square brackets([]) always!
 ---
 
 7. Arrow functions are always expressions (Arrow function expressions)
@@ -148,11 +149,11 @@ while(!arr_values.next().done) {
 ```
 ---
 
-13.  Sets operations: .add, .delete, .clear
+13.  Sets operations: `.add`, `.delete`, `.clear`
 14.  Iterate through sets: setIterator & for...of
 ```javascript
 const mySet = new Set([1, 2, 3]);
-const setIterator = mySet.values();
+const setIterator = mySet.values(); 
 
 //using for...of loop
 for (const value of mySet) {
@@ -163,9 +164,10 @@ for (const value of mySet) {
 let result = setIterator.next();
 
 ```
+> Set.values() returns a SetIterator()
 ---
 
-15.  Weak sets: only objects (use it for double-deletion of objects)
+15.  Weak sets: Contains only objects (use it for double-deletion of objects)
 ```javascript
 const weakSet = new WeakSet();
 let obj1 = { name: "Confy" };
@@ -176,7 +178,7 @@ obj1 = null; // Remove reference to the object
 ```
 16.  Garbage collection: automatic memory management, removes unused objects from memory
 
-17.  Map ops: .set(), .delete(key), .clear, .has, .get
+17.  Map operations: `.set()`, `.delete(key)`, `.clear`, `.has`, `.get`
 ```javascript
 const myMap = new Map();
 myMap.set("key1", "value1");
@@ -188,7 +190,7 @@ myMap.clear();
 ```
 ---
 
-18.  Map iterations: MapIterator, for...of, .forEach()
+18.  Traversing through Map entries: `MapIterator`, `for...of (Destructuring)`, `.forEach()`
 ```javascript
 const myMap = new Map([["key1", "value1"], ["key2", "value2"]]);
 // Using MapIterator
@@ -205,8 +207,7 @@ myMap.forEach((value, key) => {
 ``` 
 ---
 
-19.  destructuring needs brackets!
-20.  weakMap(): only object-keys
+19.  weakMap(): only object-keys
 ```javascript
 const weakMap = new WeakMap();
 let objKey = { name: "Confy" };
@@ -217,7 +218,8 @@ objKey = null; // Remove reference to the object
 ```
 ---
 
-21. Promises: Full structure of a Promises
+20. Promises: Full structure of a Promises
+> In JavaScript, a Promise is an object representing the eventual **completion** or **failure** of an **asynchronous operation**. It acts as a placeholder for a value that is not available immediately but will be in the future, allowing programs to run without freezing while waiting for tasks (like loading/fetch data) to finish.
 ```javascript
 const myPromise = new Promise(function (resolve, reject) {
   const success = true;
