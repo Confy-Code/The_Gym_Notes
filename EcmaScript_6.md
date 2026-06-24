@@ -311,7 +311,7 @@ console.log(confyProxy.name); // Output: "confy"
 
 1. The get trap: Intercepts property access.
 2. The set trap: Intercepts property assignment.  
-3. The has trap: Intercepts the in operator.
+3. The has trap: Intercepts the `in` operator.
    ```javascript
    const handler = {
      has(target, property) {
@@ -325,11 +325,11 @@ console.log(confyProxy.name); // Output: "confy"
     console.log("status" in richardProxy); // Output: false
     console.log("name" in richardProxy); // Output: true (assuming "name" is a property of the target object)
    ```
-4. The deleteProperty trap: Intercepts the delete operator.
+4. The deleteProperty trap: Intercepts the `delete` operator.
 5. The apply trap: Intercepts function calls.
-6. The construct trap: Intercepts object instantiation with the new operator.
-7. The getOwnPropertyDescriptor trap: Intercepts Object.getOwnPropertyDescriptor() calls.
-8. The ownKeys trap: Intercepts Object.keys(), Object.getOwnPropertyNames(), ...
+6. The construct trap: Intercepts object instantiation with the `new` operator.
+7. The getOwnPropertyDescriptor trap: Intercepts `Object.getOwnPropertyDescriptor()` calls.
+8. The ownKeys trap: Intercepts `Object.keys()`, `Object.getOwnPropertyNames()`, ...
 ---
 
 23. **DIFFERENCE BETWEEN PROXY & GETTER/SETTER**
@@ -342,6 +342,7 @@ console.log(confyProxy.name); // Output: "confy"
 24. **GENERATORS AND ITERATORS**
 
 - **Generators**: special functions that can be paused and resumed, defined with function* syntax, use yield to produce a sequence of values.
+> You can create infinite loops (`while(true){}`) safely because they only calculate the next value when explicitly asked.
 ```javascript
 function* generatorFunction() {
   yield 1;
@@ -353,7 +354,7 @@ console.log(generator.next()); // { value: 1, done: false }
 
 ```
 ---
-- **YIELD** IN and OUT functions: yield can be used to receive input from the caller and also to produce output.
+- **YIELD** `IN` and `OUT` functions: `yield` can be used to receive input from the caller and also to produce output.
 ```javascript 
 function* generatorFunction() {
   const input = yield "Please provide input";
@@ -366,7 +367,7 @@ console.log(generator.next("Hello, Generator!")); // Logs: "Received input: Hell
 ```
 ---
 
-25.  **Ecma international:** organization that standardizes JavaScript (ECMAScript) and JSON specifications, ensuring consistency and compatibility across different implementations of JavaScript.
+1.   **Ecma international:** organization that standardizes JavaScript (ECMAScript) and JSON specifications, ensuring consistency and compatibility across different implementations of JavaScript.
 
 ---
 
@@ -387,16 +388,24 @@ if (!String.prototype.startsWith) {
   };
 }
 ```
-==> Other Polyfills include: SVG, HTML5, Video, WebSockets, etc.
+>1. **Feature Detection (`if (!String.prototype.startsWith)`)**: It checks if the method already exists. If the browser is modern and supports it, the code skips execution to avoid overwriting native, optimized engine performance.
+>2. **Fallback Injection**: If the method is missing (e.g., in an legacy browser), it manually adds the `startsWith` function directly to the global `String` prototype.
+>3. **Legacy Replication (`this.substr`)**: It recreates the modern behavior using `this.substr()`, an older, universally supported string method to extract and verify the matching text characters.
+
+>This ensures consistent code behavior across all execution environments without breaking older systems.
+
+==> Other Polyfills include: `SVG`, `HTML5`, `Video`, `WebSockets`, etc.
 ---
 
-29. **TRANSPILER**: Converts the code from one language version to another, e.g, from ES6 to ES5, allowing developers to use modern JavaScript features while ensuring compatibility with older browsers that may not support those features.
+29.  **TRANSPILER**: Converts the code from one language version to another, e.g, from ES6 to ES5, allowing developers to use modern JavaScript features while ensuring compatibility with older browsers that may not support those features.
 
-- Example: Babel -- a popular JavaScript transpiler that converts ES6+ code into ES5 code, JSX and Flow to JavaScript by using their website.
+- Example: *Babel* -- a popular JavaScript transpiler that converts ES6+ code into ES5 code, JSX and Flow to JavaScript by using their website.
 
   To do this, Babel uses plugins and presets that define how specific features like arrow functions should be transformed.
 
   Plugins and presents can be configured in .babelrc file.
+
+> `Polyfills` and `Transpilers` are one of the popular ways to ensure compatibility between old browsers and modern JavaScript.
 
 --- 
 
