@@ -221,24 +221,50 @@ objKey = null; // Remove reference to the object
 20. Promises: Full structure of a Promises
 > In JavaScript, a Promise is an object representing the eventual **completion** or **failure** of an **asynchronous operation**. It acts as a placeholder for a value that is not available immediately but will be in the future, allowing programs to run without freezing while waiting for tasks (like loading/fetch data) to finish.
 ```javascript
+// STEP 1: The JS engine encounters the Promise constructor.
+// It immediately pushes the inner executor function onto the Call Stack to run synchronously.
 const myPromise = new Promise(function (resolve, reject) {
+  
+  // STEP 2: A constant variable named 'success' is created in synchronous memory.
   const success = true;
 
+  // STEP 3: setTimeout is called. It hands this callback function to the Web API background environment
+  // and starts a 1000ms timer. The executor function then pops off the Call Stack.
+  // The 'myPromise' object is now initialized and sitting in a <pending> state.
   setTimeout(function () {
+    // STEP 6: 1000ms later, the timer expires. The Web API moves this entire callback function 
+    // into the Macrotask Queue. The Event Loop picks it up and pushes it onto the Call Stack.
+    
+    // STEP 7: Inside the macrotask, 'if (success)' evaluates to true.
     if (success) {
+      // The resolve() function is fired. This permanently changes the state of 'myPromise' 
+      // from <pending> to <fulfilled>, locking in the value.
       resolve('Ice cream is ready!');
+      
+      // STEP 8: The moment resolve() fires, JS looks for any attached handlers (.then) 
+      // and immediately pushes the success callback function into the high-priority Microtask Queue.
     } else {
       reject('Sorry, no ice cream today.');
     }
   }, 1000);
 });
 
+// STEP 4: This runs instantly because it is regular synchronous code.
+// Output: Promise { <pending> } (Because the 1000ms timer has barely even started).
 console.log(myPromise);
 
+// STEP 5: This registers the success and failure handlers to the promise object.
+// Because the promise is still pending, JS stores these functions in memory for later.
+// The main script now ends, leaving the Call Stack completely EMPTY.
 myPromise.then(
+  // This function is the success callback stored in memory
   function (message) {
+    // STEP 9: The Event Loop empties the Macrotask Queue, checks the Microtask Queue, 
+    // finds this callback, and pushes it onto the Call Stack.
+    // Output: Success: Ice cream is ready!
     console.log('Success:', message);
   },
+  // This function is the failure callback (ignored in this run because we resolved)
   function (error) {
     console.log('Failed:', error);
   }
