@@ -137,7 +137,7 @@ const obj1 = {
 ```
 ---
 
-12. [Symbol.iterator](): to simulate linked-lists
+12. `[Symbol.iterator]()`: to simulate linked-lists
 ```javascript
 const arr = [1, 2, 3];
 arr_values = arr[Symbol.iterator]();
@@ -274,7 +274,7 @@ myPromise.then(
 
 22. **PROXY**: An object that stands in front of another object and intercepts operations on it
 ```javascript
-const richard = {status: "looking for a job"};
+const confy = {status: "looking for a job"};
 const handler = {
   get(target, property) {
     if (property === "status") {
@@ -283,8 +283,8 @@ const handler = {
     return target[property];
   }
 };
-const richardProxy = new Proxy(richard, handler);
-console.log(richardProxy.status); // Output: "hired"
+const confyProxy = new Proxy(confy, handler);
+console.log(confyProxy.status); // Output: "hired"
 
 // using set trap to intercept property assignment
 const handler = {
@@ -297,11 +297,13 @@ const handler = {
     return true;
   }
 };
-const richardProxy = new Proxy(richard, handler);
-richardProxy.status = "hired"; // Output: "Status cannot be changed."
+const confyProxy = new Proxy(confy, handler);
+confyProxy.status = "hired";
+console.log(confyProxy.status); //Output: "Status cannot be changed."
+                                //         "looking for a job" (outputs the current value of status property - proving it hasn't changed)
 
-richardProxy.name = "Richard"; // This will work, as it's not the "status" property
-console.log(richardProxy.name); // Output: "Richard"
+confyProxy.name = "Confy"; // This will work, as it's not the "status" property
+console.log(confyProxy.name); // Output: "confy"
 ```
 -- 
 
